@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>메인 페이지</title>
+</head>
+<body>
+    <h1>결제 시작하기</h1>
+    <table>
+        <tr>
+            <td width="50%"><img src="http://127.0.0.1:8000/home/live_cam" style="width:200px"/></td>
+        </tr>
+    </table>
+
+    <!-- 결제하기 버튼 -->
+    <button id="payment-button">결제하기</button>
+
+
+    <script>
+    document.getElementById('payment-button').addEventListener('click', function() {
+        // AJAX 요청을 보내는 부분
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '{% url 'start_detect' %}', true);
+
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+            // 요청이 성공적으로 처리되었을 때 실행할 코드
+                console.log('뷰가 실행되었습니다.');
+            }
+        };
+
+        xhr.send();
+    });
+    </script>
+
+</body>
+</html>
