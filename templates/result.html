@@ -5,6 +5,49 @@
     <title>result</title>
 </head>
 <body>
+    <h1>캡쳐이미지</h1>
+    <table>
+        <tr>
+            <td width="100%"><img src="data:image/jpeg;base64,{{ captured_img }}" alt="Captured Frame" style="width:800px"/></td>
+        </tr>
+    </table>
+    <h1>바운딩 박스</h1>
+    <table>
+        <tr>
+            <td width="100%"><img src="data:image/jpeg;base64,{{ result_img }}" alt="Captured Frame" style="width:800px"/></td>
+        </tr>
+    </table>
+
+
+
+    <table>
+    <tr>
+        <td>
+            <ul>
+                {% for class_name, images in result_crop_imgs.items %}
+                    <li>{{ class_name }}</li>
+
+                    <ul>
+                        {% for image in images %}
+                            <li><img src="data:image/jpeg;base64,{{ image }}" alt="{{ class_name }} Image" style="width:120px" />상품명 : 오뚜기 케챂 / </li>
+                        {% endfor %}
+                    </ul>
+
+                {% endfor %}
+            </ul>
+        </td>
+    </tr>
+    </table>
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>
